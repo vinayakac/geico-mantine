@@ -1,0 +1,93 @@
+.navbar {
+  width: 60px;
+  height: 100vh;
+  padding: var(--mantine-spacing-md);
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(180deg, #005ccc 40%, #004b9b 100%);
+  position: fixed;
+}
+
+.navbarMain {
+  flex: 1;
+  margin: -11px;
+}
+
+.link {
+  width: rem(50px);
+  height: rem(50px);
+  border-radius: var(--mantine-radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--mantine-color-white);
+
+  &:hover {
+    background-color: #004b9b;
+    border-radius: 0;
+    width: 37px;
+    height: 61px;
+    margin-left: 7px;
+  }
+
+  &[data-active] {
+    &,
+    &:hover {
+      box-shadow: var(--mantine-shadow-sm);
+      background-color: #004b9b;
+      color: #ffba23;
+      border-radius: 0;
+      width: 37px;
+      height: 61px;
+      margin-left: 7px;
+    }
+  }
+}
+
+.logoContainer {
+  margin-bottom: 0px;
+  margin-left: -2.7px;
+  margin-bottom: 10px;
+}
+
+.helpSection {
+  margin-left: -11px;
+  margin-top: -24px;
+  margin-bottom: 6px;
+}
+
+.logo div {
+  margin: 0;
+  padding: 0;
+  line-height: 1.1;
+  margin-bottom: 70px;
+}
+
+.mlMonitor {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.mlMonitor div {
+  margin: 0;
+  padding: 0;
+  line-height: 1.1;
+  margin-bottom: 35px;
+}
+
+.mlMonitor div:first-child {
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+.mlMonitor div:last-child {
+  font-size: 11px;
+  font-weight: bold;
+  margin-left: 3px;
+}

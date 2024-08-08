@@ -1,0 +1,7 @@
+node_modules
+/.vs
+/api/.env
+/api/build/
+env
+
+.env

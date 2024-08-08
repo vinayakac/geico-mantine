@@ -1,0 +1,84 @@
+variables:
+  # The build agent Pool
+  buildPool: "GZ-DotNETJava-NP-Linux"
+  # source folder and projects to build for this pipeline
+  sourceFolder: "./api"
+  #source folder for the client
+  clientSourceFolder: "./client.2.0"
+  # email address for notifications
+  notificationEmailAddress: ""
+  # deploy config json
+  deployConfigJson: appdeploy.config.json
+
+name: "$(Build.DefinitionName).$(Date:yyyyMMdd).$(Rev:r)-$(Build.SourceBranchName)"
+
+trigger: none
+
+pool:
+  name: $(buildPool)
+
+stages:
+  - stage: BuildAndPublishApp
+    displayName: "Build and Publish Application"
+    jobs:
+      - job: BuildAndPublishApp
+        displayName: "Build and Publish Application"
+        steps:
+          # Checkout source with settings
+          - checkout: self
+            clean: true
+
+          # Step to specify the Node.js version
+          - task: UseNode@1
+            inputs:
+              version: "16.16.0"
+
+          # npm install
+          - task: Npm@1
+            inputs:
+              displayName: "NPM install in API source"
+              command: "install"
+              workingDir: $(sourceFolder)
+
+            # compile typescript files
+          - task: Npm@1
+            inputs:
+              displayName: "NPM install in client"
+              command: "install"
+              workingDir: $(clientSourceFolder)
+
+            # compile typescript files
+          - task: Npm@1
+            displayName: "Build React static files"
+            inputs:
+              command: "custom"
+              workingDir: $(clientSourceFolder)
+              customCommand: "run build"
+
+          - task: PowerShell@2
+            displayName: "Create build folder"
+            inputs:
+              targetType: "inline"
+              script: "New-Item '$(sourceFolder)/build' -ItemType Directory"
+
+            #copy client static files to api directory
+          - task: CopyFiles@2
+            inputs:
+              displayName: "Copy static files to build folder"
+              SourceFolder: "$(clientSourceFolder)/build"
+              TargetFolder: "$(sourceFolder)/build"
+              Contents: "**"
+              CleanTargetFolder: true
+
+            # stage function app build package
+          - task: ArchiveFiles@2
+            inputs:
+              rootFolderOrFile: "$(sourceFolder)"
+              includeRootFolder: false
+              archiveType: "zip"
+              archiveFile: "$(Build.ArtifactStagingDirectory)/build-package.zip"
+              replaceExistingArchive: true
+          - task: CICDStagePackageFunctionApp@0
+            inputs:
+              ConfigFilePath: "$(sourceFolder)/$(deployConfigJson)"
+              PackageFolderPath: "$(Build.ArtifactStagingDirectory)/build-package.zip"

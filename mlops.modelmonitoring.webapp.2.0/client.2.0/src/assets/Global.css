@@ -1,0 +1,264 @@
+/*
+ * Global CSS File
+ * Description: This CSS file contains the base styles for the entire application, including font faces,
+ * color variables, and responsive typography for various HTML elements. 
+ * The styles are designed to support theming and customization for the application.
+ * Font Family: 'GEICORoobert' * Fallback Font: sans-serif
+ */
+
+@font-face {
+  font-family: 'GEICORoobert';
+  font-style: normal;
+  font-weight: 400;
+  src:
+    url(./fonts/GEICORoobert-Regular.woff2) format('woff2'),
+    url(./fonts/GEICORoobert-Regular.woff) format('woff');
+}
+@font-face {
+  font-family: 'GEICORoobert';
+  font-style: normal;
+  font-weight: 700;
+  src:
+    url(./fonts/GEICORoobert-Bold.woff2) format('woff2'),
+    url(./fonts/GEICORoobert-Bold.woff) format('woff');
+}
+@font-face {
+  font-family: 'GEICORoobert';
+  font-style: italic;
+  font-weight: 400;
+  src:
+    url(./fonts/GEICORoobert-RegularItalic.woff2) format('woff2'),
+    url(./fonts/GEICORoobert-RegularItalic.woff) format('woff');
+}
+@font-face {
+  font-family: 'GEICORoobert';
+  font-style: italic;
+  font-weight: 700;
+  src:
+    url(./fonts/GEICORoobert-BoldItalic.woff2) format('woff2'),
+    url(./fonts/GEICORoobert-BoldItalic.woff) format('woff');
+}
+/* /////////////////////////////////////////////////////////////////////
+    //  01- Colors
+    /////////////////////////////////////////////////////////////////////*/
+:root {
+  --color-black-1: #1c1c1e;
+  --color-black-2: #141414;
+  --color-black-3: #000000;
+  --color-blue: #005ccc;
+  --color-dark-blue: #295697;
+  --color-dark-green: #2c612b;
+  --color-dark-indigo: #1e4071;
+  --color-dark-magenta: #863673;
+  --color-dark-orange: #b34018;
+  --color-dark-purple: #5c3d99;
+  --color-dark-red: #941e2c;
+  --color-dark-teal: #265f5f;
+  --color-dark-yellow: #bf8b1a;
+  --color-dark-yellow-orange: #cb6100;
+  --color-gray-1: #fafafa;
+  --color-gray-2: #ededed;
+  --color-gray-2a: #dcdcdc;
+  --color-gray-3: #bcbcbc;
+  --color-gray-4: #616161;
+  --color-gray-5: #2b2b2f;
+  --color-green: #22841f;
+  --color-heritage-blue: #0038a8;
+  --color-light-blue: #f0f4fb;
+  --color-light-green: #f2fbf0;
+  --color-light-indigo: #edeffc;
+  --color-light-magenta: #fbf0f6;
+  --color-light-orange: #fff3e8;
+  --color-light-purple: #f7f0fb;
+  --color-light-red: #fbf3f0;
+  --color-light-yellow: #fdfbe8;
+  --color-light-yellow-orange: #fcf5ed;
+  --color-magenta: #be3c9d;
+  --color-modal-overlay: rgba(0, 0, 0, 0.2);
+  --color-new-light-teal: #f0fbf9;
+  --color-orange: #ef5621;
+  --color-purple: #977fcc;
+  --color-red: #e00b20;
+  --color-teal: #327b7b;
+  --color-white: #ffffff;
+  --color-yellow: #ffba23;
+  --color-yellow-orange: #f3a241;
+}
+
+/* Base color definitions */
+:root {
+  --primary-color: #005ccc;
+  --background-color: linear-gradient(#0a0a0a 100%, #1d3a6dcc 80%);
+  --text-color: #1c1c1e;
+}
+
+/* Dark theme overrides */
+body.dark-mode {
+  --primary-color: #005ccc;
+  --background-color: #141414;
+  --text-color: #fafafa;
+}
+
+/* /////////////////////////////////////////////////////////////////////
+    //  02- Icon Classes
+    /////////////////////////////////////////////////////////////////////*/
+.icon {
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.add {
+  background-image: url('./images/icons/add.svg');
+}
+
+.download {
+  background-image: url('./images/icons/download.svg');
+}
+
+.search {
+  background-image: url('./images/icons/search.svg');
+}
+
+/* /////////////////////////////////////////////////////////////////////
+    //  03- TYPOGRAPHY 
+            FontsHeading 
+            Styles
+    /////////////////////////////////////////////////////////////////////*/
+.h1,
+h1 {
+  font-family: 'GEICORoobert', sans-serif;
+  font-size: 33px;
+  line-height: 34px;
+  letter-spacing: -1px;
+  font-weight: 700;
+}
+.h1-light,
+h1.light {
+  font-family: 'GEICORoobert', sans-serif;
+  font-size: 33px;
+  line-height: 34px;
+  letter-spacing: -1px;
+  font-weight: 400;
+}
+
+.h2,
+h2 {
+  font-family: 'GEICORoobert', sans-serif;
+  font-size: 29px;
+  line-height: 32px;
+  letter-spacing: 0;
+  font-weight: 700;
+}
+.h2-light,
+h2.light {
+  font-family: 'GEICORoobert', sans-serif;
+  font-size: 29px;
+  line-height: 32px;
+  letter-spacing: 0;
+  font-weight: 400;
+}
+
+.h3,
+h3 {
+  font-family: 'GEICORoobert', sans-serif;
+  font-size: 27px;
+  line-height: 30px;
+  letter-spacing: 0;
+  font-weight: 700;
+}
+.h3-light,
+h3.light {
+  font-family: 'GEICORoobert', sans-serif;
+  font-size: 27px;
+  line-height: 30px;
+  letter-spacing: 0;
+  font-weight: 400;
+}
+
+.h4,
+h4 {
+  font-family: 'GEICORoobert', sans-serif;
+  font-size: 23px;
+  line-height: 26px;
+  letter-spacing: 0;
+  font-weight: 700;
+}
+.h4-light,
+h4.light {
+  font-family: 'GEICORoobert', sans-serif;
+  font-size: 23px;
+  line-height: 26px;
+  letter-spacing: 0;
+  font-weight: 400;
+}
+
+.h5,
+h5 {
+  font-family: 'GEICORoobert', sans-serif;
+  font-size: 21px;
+  line-height: 24px;
+  letter-spacing: 0;
+  font-weight: 700;
+}
+.h5-light,
+h5.light {
+  font-family: 'GEICORoobert', sans-serif;
+  font-size: 21px;
+  line-height: 24px;
+  letter-spacing: 0;
+  font-weight: 400;
+}
+
+.h6,
+h6 {
+  font-family: 'GEICORoobert', sans-serif;
+  font-size: 18px;
+  line-height: 20px;
+  letter-spacing: 0;
+  font-weight: 700;
+}
+.h6-light,
+h6.light {
+  font-family: 'GEICORoobert', sans-serif;
+  font-size: 18px;
+  line-height: 20px;
+  letter-spacing: 0;
+  font-weight: 400;
+}
+
+/* Paragraph and Caption Styles */
+p,
+.p-regular {
+  font-family: 'GEICORoobert', sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0;
+  font-weight: 400;
+}
+.caption1,
+.caption1-regular {
+  font-family: 'GEICORoobert', sans-serif;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: 0;
+  font-weight: 400;
+}
+.caption2,
+.caption2-regular {
+  font-family: 'GEICORoobert', sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+  letter-spacing: 0;
+  font-weight: 400;
+}
+.caption3,
+.caption3-regular {
+  font-family: 'GEICORoobert', sans-serif;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0;
+  font-weight: 400;
+}
